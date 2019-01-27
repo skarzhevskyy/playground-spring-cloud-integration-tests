@@ -62,7 +62,9 @@ public class TestDecryptPropertiesLocal {
 
 		assertEquals("bar7-p1-clear-ok", environment.getProperty("bar7"));
 
-		verify(encryptor, times(2)) // <!-- this is different in local
+		// Finchley.SR2 = 2 ; this used to be different in local
+		// Greenwich.RELEASE = 1
+		verify(encryptor, times(1))
 				.decrypt("bar7-p1-encrypted");
 
 		verifyNoMoreInteractions(encryptor);
@@ -85,11 +87,14 @@ public class TestDecryptPropertiesLocal {
 
 		assertEquals("bar7-p2-clear-ok", environment.getProperty("bar7"));
 
-		verify(encryptor, times(2)) // <!-- this is different in local
+		// Finchley.SR2 = 2 ; this used to be different in local
+		// Greenwich.RELEASE = 1
+		verify(encryptor, times(1)) //
 				.decrypt("bar7-p2-encrypted");
 
-		// this is different in local and actually called
-		verify(encryptor, times(2)).decrypt("bar7-p1-encrypted");
+		// this is different in local and was actually called in Finchley.SR2
+		// Fixed in Greenwich.RELEASE = 0
+		verify(encryptor, times(0)).decrypt("bar7-p1-encrypted");
 
 		verifyNoMoreInteractions(encryptor);
 	}

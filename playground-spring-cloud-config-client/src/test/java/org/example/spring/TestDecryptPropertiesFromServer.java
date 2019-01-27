@@ -81,12 +81,14 @@ public class TestDecryptPropertiesFromServer {
 		// Verify setup
 		assertEquals("foo7-p2", environment.getProperty("foo7"));
 
+		// TODO Broken in Greenwich.RELEASE takes value from p1
 		assertEquals("bar7-p2-clear-ok", environment.getProperty("bar7"));
 
 		verify(encryptor).decrypt("bar7-p2-encrypted");
 		verifyNoMoreInteractions(encryptor);
 	}
 
+	// TODO Broken in Greenwich.RELEASE
 	@Test
 	public void testOnlyDecryptIfNotOverriddenWithProfiles() throws IOException {
 
