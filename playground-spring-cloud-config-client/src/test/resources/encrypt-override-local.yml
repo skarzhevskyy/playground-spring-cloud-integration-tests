@@ -1,0 +1,13 @@
+---
+spring:
+    profiles: p1
+
+foo7: foo7-p1
+bar7: '{cipher}bar7-p1-encrypted'
+
+---
+spring:
+    profiles: p2
+
+foo7: foo7-p2
+bar7: '{cipher}bar7-p2-encrypted'

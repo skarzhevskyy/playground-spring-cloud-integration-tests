@@ -1,0 +1,8 @@
+logs/
+target/
+tmp-configs
+.classpath
+.project
+.settings/
+/*.zip
+

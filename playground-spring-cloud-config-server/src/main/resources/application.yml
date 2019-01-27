@@ -1,0 +1,16 @@
+spring.profiles.include: native
+
+server:  
+  port: 7777
+  tomcat:
+    basedir: .
+    accesslog:
+      directory: ./logs/accesslog
+      enabled: true
+
+spring:
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: 'classpath:/shared-configs'

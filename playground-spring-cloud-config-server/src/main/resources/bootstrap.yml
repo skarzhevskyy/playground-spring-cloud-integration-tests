@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      server:
+        encrypt:
+          #This server is Serving Encrypted Properties, client will need to decrypt
+          enabled: false   
